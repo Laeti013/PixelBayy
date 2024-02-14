@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exo</title>
+    <style>
+      /*CSS si nécessaire*/
+    </style>
+  </head>
+  <body>
+    <h1>Exo</h1>
+    <!-- Votre code HTML ici -->
+    <script>
+      // Votre script JS corrigé ici
+      // Collection de jeux vidéo
+      let collection = [
+        {
+          titre: "Space Adventure",
+          anneeSortie: 1984,
+          scores: [85, 87, 90, 78, 88],
+        },
+        // Ajoutez d'autres jeux ici...
+      ];
+
+      // Fonction pour afficher les détails d'un jeu spécifique
+      function afficherJeu(jeu) {
+        console.log(`Titre: ${jeu.titre}`);
+        console.log(`Année de sortie: ${jeu.anneeSortie}`);
+        console.log(`Scores de critique: ${jeu.scores.join(", ")}`);
+      }
+
+      // Fonction pour calculer la moyenne des scores de critique d'un jeu
+      function calculerMoyenneScore(jeu) {
+        // Calcul de la moyenne en additionnant tous les scores et en divisant par le nombre de scores
+        const moyenne =
+          jeu.scores.reduce((total, score) => total + score, 0) /
+          jeu.scores.length;
+        return moyenne.toFixed(2); // Retourne la moyenne avec deux décimales
+      }
+
+      // Fonction pour afficher la collection de jeux vidéo avec leurs détails
+      function afficherCollection(collection) {
+        console.log("Collection de jeux vidéo :");
+        for (const jeu of collection) {
+          afficherJeu(jeu); // Utilisation de la fonction pour afficher les détails de chaque jeu
+        }
+      }
+
+      // Fonction pour calculer la moyenne des scores pour l'ensemble de la collection
+      function calculerMoyenneScoresCollection(collection) {
+        const moyennes = collection.map((jeu) => calculerMoyenneScore(jeu)); // Calcule les moyennes pour chaque jeu
+        const moyenneTotale =
+          moyennes.reduce((total, moyenne) => total + parseFloat(moyenne), 0) /
+          collection.length; // Calcule la moyenne totale
+        return moyenneTotale.toFixed(2); // Retourne la moyenne totale avec deux décimales
+      }
+
+      // Exemples d'utilisation des fonctions
+      afficherCollection(collection);
+      console.log(
+        "\nMoyenne des scores de critique pour Space Adventure:",
+        calculerMoyenneScore(collection[0])
+      );
+      console.log(
+        "Moyenne des scores de critique pour toute la collection:",
+        calculerMoyenneScoresCollection(collection)
+      );
+    </script>
+  </body>
+</html>

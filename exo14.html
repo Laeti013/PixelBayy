@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Vérification Année Bisextile chez PixelBay</title>
+</head>
+
+<body>
+
+    <h1>Exo 14</h1>
+    <script>
+
+         
+         let year = Number(prompt("Veuillez entrer une année")); //variable year qui est égal à un nombre inconnu + une annonce via un prompt 
+
+          function bisextile(year) { // fonction bisextile avec le paramètre year
+            if (year % 4 === 0  && year % 100 !== 0 || year % 400 === 0) //  condittionq de si year est divisible par 4 mais n'est pas divsible par 100 ou divisible par 400
+            {
+               return true // on lui return que c'est vrai 
+
+             
+            }
+
+           else{
+             
+            return false // on lui return que c'est faux
+
+           }
+           
+           
+
+        }
+
+        console.log(bisextile(year))
+     
+
+    </script>
+</body>
+</html>

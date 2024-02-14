@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exo 18</title>
+    <style>
+      /*CSS si nécessaire*/
+    </style>
+  </head>
+  <body>
+    <h1>Exo 18</h1>
+    <!-- Votre code HTML ici -->
+    <script>
+         // Votre script JS corrigé ici
+
+let jeu1 = {
+  titre: "GTA",
+  sortie: 1997,
+  genre: "Action-aventure",
+  score: 80,
+};
+
+function afficherInfo(jeu) {
+  return `${jeu.titre}, ${jeu.sortie}, ${jeu.genre}, ${jeu.score}`;
+}
+
+function getPopularite(jeu) {
+  return (jeu.score * jeu.sortie) / 100;
+}
+
+let jeu2 = {
+  titre: "The last of us",
+  sortie: 2022,
+  genre: "Action-aventure",
+  score: 70,
+};
+
+// Affichage des informations des deux jeux
+console.log("Informations sur le jeu 1:");
+console.log(afficherInfo(jeu1));
+console.log("Popularité du jeu 1:", getPopularite(jeu1));
+
+console.log("Informations sur le jeu 2:");
+console.log(afficherInfo(jeu2));
+console.log("Popularité du jeu 2:", getPopularite(jeu2));
+
+// Comparaison de la popularité des deux jeux
+if (getPopularite(jeu1) > getPopularite(jeu2)) {
+  console.log(`Le jeu ${jeu1.titre} est plus populaire que ${jeu2.titre} !`);
+} else if (getPopularite(jeu1) < getPopularite(jeu2)) {
+  console.log(`Le jeu ${jeu2.titre} est plus populaire que ${jeu1.titre} !`);
+} else {
+  console.log("Les deux jeux ont la même popularité !");
+}
+        
+
+    </script>
+
+
+
+   
+  </body>
+</html>

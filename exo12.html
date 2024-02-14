@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Exo 12</title>
+  </head>
+  <body>
+    <h1>Exo 12</h1>
+    <button id="button"><span id="compteur">👍Like </span></button>
+
+    <script>
+      // La fonction addOne sera implémentée ici
+      let likes = 0; // variable likes, commence à 0 j'aime 
+      let compteur = document.getElementById("compteur") // variable compteur il faut lui indiquer ou aller chercher le code avec document et get elementbyid va permettre d'aller cherchr une id dans balise html 
+      let btn = document.getElementById("button") // same
+      
+      function addOne() { //creation d'une fonction qui incrémente le nb de j'aime 
+        likes ++ // appel de la variable likes avec une écrémentation de 1 en 1
+        compteur.innerHTML = `${likes} likes` // appel de la variable compteur + inner html qui permet d'aller chercher la syntaxe
+      
+        
+      }
+
+      btn.addEventListener("click", addOne) //  prend la variable btn et avec add event listenner qui permet d'effectuer une action dans ce cas la celle de cliquer et prend aussi en compte la fonction qui incrémente 
+   
+
+      console.log(compteur);
+
+      
+
+     
+    </script>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exo</title>
+    <style>
+    /*CSS si nécessaire*/
+    </style>
+</head>
+<body>
+    <h1>Exo 20</h1>
+    <!-- Votre code HTML ici -->
+    <script>
+        // Votre script JS ici
+        // Code de départ
+let collection = [
+    // code pour créer la collection de jeux
+    {
+        titre: "Space Adventure",
+        anneeSortie: 1984,
+        scores: [85, 87, 90, 78, 88]
+    },
+   
+];
+
+// Fonction pour afficher les détails d'un jeu spécifique
+function afficherJeu(jeu) {
+    console.log(`Titre: ${jeu.titre}`);
+    console.log(`Année de sortie: ${jeu.anneeSortie}`);
+    console.log(`Scores de critique: ${jeu.scores.join(', ')}`);
+}
+
+// Fonction pour parcourir et afficher tous les jeux de la collection
+function afficherCollection(collection) {
+    console.log("Collection de jeux vidéo :");
+    for (const jeu of collection) {
+        afficherJeu(jeu);
+        
+    }
+}
+
+// Fonction pour calculer la moyenne des scores de critique d'un jeu
+function calculerMoyenneScore(jeu) {
+    const totalScores = jeu.scores.reduce((total, score) => total + score, 0);
+    return totalScores / jeu.scores.length;
+}
+
+// Fonction pour déterminer la moyenne des scores pour l'ensemble de la collection
+function calculerMoyenneScoresCollection(collection) {
+    let totalMoyenneScores = 0;
+    for (const jeu of collection) {
+        totalMoyenneScores += calculerMoyenneScore(jeu);
+    }
+    return totalMoyenneScores / collection.length;
+}
+
+// Exemples d'utilisation des fonctions
+afficherCollection(collection);
+console.log("\nMoyenne des scores de critique pour Space Adventure:", calculerMoyenneScore(collection[0]));
+console.log("Moyenne des scores de critique pour toute la collection:", calculerMoyenneScoresCollection(collection));
+
+
+    </script>
+</body>
+</html>

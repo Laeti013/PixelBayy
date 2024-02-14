@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exo 13</title>
+    <style>
+      body {
+        text-align: center;
+        background-color: #f0f0f0;
+      }
+
+      h1 {
+        color: #333;
+      }
+
+      .easter-egg {
+        font-size: 24px;
+        color: rgb(255, 0, 0);
+        background-color: black;
+        text-transform: uppercase;
+        animation: pulse 1s infinite alternate;
+      }
+
+      @keyframes pulse {
+        from {
+          transform: scale(1);
+        }
+        to {
+          transform: scale(1.1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome to PixelBay</h1>
+    <p>Start typing the Konami Code to activate the Easter egg!</p>
+
+
+    <!-- Votre code HTML ici -->
+    <script>
+      // Votre script JS ici
+      // Définition du code Konami
+      const konamiCode = [
+        "ArrowUp",
+        "ArrowUp",
+        "ArrowDown",
+        "ArrowDown",
+        "ArrowLeft",
+        "ArrowRight",
+        "ArrowLeft",
+        "ArrowRight",
+        "b",
+        "a"
+       
+   
+      ];
+      let konamiIndex = 0; // Index de la prochaine touche à vérifier dans le code Konami
+
+
+      // Fonction pour vérifier si la touche saisie correspond au code Konami
+      function checkKonamiCode(event) {
+        // Vérifie si la touche saisie correspond à la prochaine touche dans le code Konami
+        if (event.key === konamiCode[konamiIndex]) {
+          konamiIndex++; // Passe à la prochaine touche dans le code Konami
+          // Si toutes les touches du code Konami ont été saisies dans l'ordre, active l'easter egg
+          console.log(event.key)
+
+          if (konamiIndex === konamiCode.length) {
+            activateEasterEgg(); // Appelle la fonction pour activer l'easter egg
+            konamiIndex = 0; // Réinitialise l'index pour permettre la saisie du code à nouveau
+          }
+        } 
+        
+        
+        else {
+          konamiIndex = 0; // Réinitialise l'index si la touche saisie ne correspond pas à la séquence du code Konami
+        }
+      }
+
+      // Fonction pour activer l'easter egg
+      function activateEasterEgg() {
+        // Ajoute un élément avec la classe 'easter-egg' contenant le message 'Code Konami activated!' à la fin du corps de la page
+        document.body.innerHTML +=
+          '<div class="easter-egg">Code Konami activated!</div>';
+      }
+
+      // Écouteur d'événements pour les touches clavier
+      document.addEventListener("keydown", checkKonamiCode);
+     
+    </script>
+  </body>
+</html>

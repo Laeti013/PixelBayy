@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exo 19</title>
+    <style>
+      /*CSS si nécessaire*/
+    </style>
+  </head>
+  <body>
+    <h1>Exo 19</h1>
+    <!-- Votre code HTML ici -->
+    <script>
+      // Votre script JS corrigé ici
+      let jeuxRetro = [
+        {
+          titre: "Pac Man",
+          anneeSortie: 1980,
+          genre: "Action",
+        },
+
+        {
+          titre: "Spyro",
+          anneeSortie: 1998,
+          genre: "Action",
+        },
+
+        {
+          titre: "Super Mario 64",
+          anneeSortie: 1996,
+          genre: "Plateforme",
+        },
+      ];
+
+      console.log("Informations sur les jeux rétros :");
+      for (const retro of jeuxRetro) {
+        console.log(`Titre: ${retro.titre}, Année de sortie: ${retro.anneeSortie}, Genre: ${retro.genre}`);
+      }
+
+      const jeuxModernes = [
+    {
+        titre: "The Last of Us Part II",
+        anneeSortie: 2020,
+        genre: "Action-Aventure"
+    },
+    {
+        titre: "Red Dead Redemption 2",
+        anneeSortie: 2018,
+        genre: "Action-Aventure"
+    },
+    {
+        titre: "God of War",
+        anneeSortie: 2018,
+        genre: "Action-Aventure"
+    },
+    {
+        titre: "Spider-Man",
+        anneeSortie: 2018,
+        genre: "Action-Aventure"
+    }
+
+    
+
+];
+
+
+console.log ("Information sur les jeux modernes")
+for (const modernes of jeuxModernes) {
+    console.log(`Titre: ${modernes.titre}, Année de sortie: ${modernes.anneeSortie}, Genre: ${modernes.genre}`)
+    
+}
+
+// Fonction pour calculer et afficher l'année moyenne de sortie des jeux
+function calculerMoyenneAnneesSortie(listeJeux) {
+    let totalAnnees = 0;
+
+    // Calcul de la somme des années de sortie
+    for (const jeu of listeJeux) {
+        totalAnnees += jeu.anneeSortie;
+    }
+
+    // Calcul de la moyenne
+    const moyenneAnnees = totalAnnees / listeJeux.length;
+
+    // Affichage de la moyenne
+    console.log(`L'année moyenne de sortie des jeux est : ${moyenneAnnees.toFixed(2)}`);
+}
+
+
+// Calcul et comparaison des années moyennes de sortie
+console.log("\n");
+console.log("Comparaison des années moyennes de sortie :");
+console.log("Jeux rétro :");
+calculerMoyenneAnneesSortie(jeuxRetro);
+console.log("Jeux modernes :");
+calculerMoyenneAnneesSortie(jeuxModernes);
+
+
+
+
+
+
+    </script>
+  </body>
+</html>

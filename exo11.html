@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exo 11</title>
+    <style>
+    /*CSS si nécessaire*/
+    </style>
+</head>
+<body>
+    <h1>Exo 11</h1>
+    <!-- Votre code HTML ici -->
+    
+    <script>
+        // Votre script JS ici
+        let prixdebase = 110 
+        let promoete = 20
+        let promohiver = 30
+        let promospecial = 50
+        
+       
+        function Promos (a,b){ // prix(a) promos(b)
+           let nospromos = a - (a * b / 100) //calcul d'une promotion 
+           return nospromos // permet d'afficher le résultat après avoir appliquer une promo
+            }
+            
+
+          console.log("Prix après promotion d'été :", Promos(prixdebase, promoete)); //oonsolelog qui permet d'aficher dans la console une chaîne de caractère + le nom d'une fonction + les paramètres des variables nécessaires pour calculer la Promos. 
+          console.log("Prix après promotion d'été :", Promos(prixdebase, promohiver ));
+          console.log("Prix après promotion d'été :", Promos(prixdebase, promospecial ));
+
+    </script>
+</body>
+</html>

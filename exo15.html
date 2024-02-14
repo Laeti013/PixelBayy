@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>FizzBuzz Challenge</title>
+  </head>
+  <body>
+    <h1>Exo 15</h1>
+    <script>
+      // Votre script pour le jeu FizzBuzz ici
+      let nombre = 151;
+
+      function fizzbuzz() {
+        // boucle de 1 à 151
+        for (let i = 1; i <= nombre; i++) {
+         
+          if (i % 3 === 0 && i % 5 === 0) { 
+            console.log("FizzBuzz"); // si nombre divisible par 3 et par 5 alors affiche FizzBuzz 
+          } else if (i % 3 === 0) { // sinon vérifie si le nombre est divisible par 3 affiche fizz
+            console.log("Fizz");
+          } else if (i % 5 === 0) { // sinon vérifie si le nombre est divisible par 5 affiche buzz
+            console.log("Buzz");
+          } else { // si aucun cas affiche le nombre
+            console.log(i);
+          }
+        }
+      }
+
+      fizzbuzz();
+    </script>
+  </body>
+</html>

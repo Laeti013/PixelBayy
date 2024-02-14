@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma liste de tâches</title>
+    <style>
+        /* Styles CSS */
+        .completed {
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="todo-app">
+            <h1>Ma liste de tâches</h1>
+            <input type="text" id="taskInput" placeholder="Ajouter une tâche">
+            <ul id="taskList"></ul>
+        </div>
+    </main>
+    <script>
+        // Récupération des éléments HTML
+        const taskInput = document.getElementById('taskInput');
+        const taskList = document.getElementById('taskList');
+
+        // Fonction pour ajouter une tâche
+        function addTask() {
+            const taskText = taskInput.value.trim();
+            if (taskText !== '') {
+                const taskItem = document.createElement('li');
+                taskItem.textContent = taskText;
+                taskList.appendChild(taskItem);
+                taskInput.value = ''; // Effacer le champ de saisie après l'ajout d'une tâche
+                updateTaskCount();
+            }
+        }
+
+        // Fonction pour marquer une tâche comme complétée
+        function toggleTaskCompletion(event) {
+            const taskItem = event.target;
+            taskItem.classList.toggle('completed');
+        }
+
+        // Fonction pour supprimer une tâche
+        function deleteTask(event) {
+            const taskItem = event.target;
+            if (taskItem.tagName.toLowerCase() === 'li') {
+                taskList.removeChild(taskItem);
+                updateTaskCount();
+            }
+        }
+
+        // Fonction pour mettre à jour le nombre de tâches
+        function updateTaskCount() {
+            const taskCount = taskList.children.length;
+            document.querySelector('h1').textContent = `Ma liste de tâches (${taskCount})`;
+        }
+
+        // Écouteur d'événement pour ajouter une tâche lorsque la touche "Enter" est pressée
+        taskInput.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                addTask();
+            }
+        });
+
+        // Écouteur d'événement pour marquer une tâche comme complétée lorsqu'elle est cliquée
+        taskList.addEventListener('click', toggleTaskCompletion);
+
+        // Écouteur d'événement pour supprimer une tâche lorsqu'elle est double-cliquée
+        taskList.addEventListener('dblclick', deleteTask);
+    </script>
+</body>
+</html>

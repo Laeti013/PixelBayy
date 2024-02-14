@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exo03</title>
+    <style>
+      /*CSS si nécessaire*/
+    </style>
+  </head>
+  <body>
+    <h1>Exo 03</h1>
+    <!-- Votre code HTML ici -->
+    <script>
+      // Votre script JS ici
+
+      const NOM_DU_MAGASIN = "PixelBay";
+      let jeuxVendus = 10; //variable qui change
+
+      function SpecialDay(){ //fonction special day
+          
+
+        if(jeuxVendus>100){ // première condititon jeuxvendus supérieur 100
+        console.log("Grande promotion") 
+      }
+
+        else if(jeuxVendus >= 50 && jeuxVendus <= 100){ // jeux vendus compris entre 50 et 100
+        console.log("réorganisation de son espace de vente")
+      }
+
+        else if(jeuxVendus<50 ){ // jeux infèrieur à 50
+        console.log("Campagne publicitaire")
+      }
+
+        else{ // prend en compte toute les autres valeurs comme string ou boolean
+        console.log("Autres infos") 
+      }
+       
+      }
+
+      SpecialDay();
+        
+
+      
+    
+    </script>
+  </body>
+</html>

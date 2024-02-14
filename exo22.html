@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Barre de Progression de Scroll chez PixelBay</title>
+    <style>
+        body {
+            height: 2000px; /* pour créer un espace de défilement */
+        }
+        
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            height: 5px;
+            background-color: #ff0000;
+            width: 0%;
+            transition: width 0.3s; /* pour ajouter une transition en douceur */
+        }
+    </style>
+</head>
+<body>
+    <!-- Votre contenu ici -->
+    
+    <footer></footer>
+
+    <script>
+        // Script pour ajuster la largeur du footer en fonction du scroll
+        document.addEventListener("scroll", function() {
+            // Récupérer la hauteur totale de la page
+            const hauteurTotalePage = document.documentElement.scrollHeight;
+            // Récupérer la hauteur de la fenêtre visible
+            const hauteurFenetre = window.innerHeight;
+            // Récupérer la position de défilement actuelle
+            const positionDeScroll = window.scrollY;
+            // Calculer le pourcentage de défilement
+            const pourcentageScroll = (positionDeScroll / (hauteurTotalePage - hauteurFenetre)) * 100;
+            // Mettre à jour la largeur du footer en fonction du pourcentage de défilement
+            document.querySelector("footer").style.width = pourcentageScroll + "%";
+        });
+    </script>
+</body>
+</html>

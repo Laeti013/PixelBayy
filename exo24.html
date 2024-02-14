@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exo</title>
+    <style>
+    /*CSS si nécessaire*/
+    .container{
+        display: flex;
+        justify-content: center;
+
+
+
+    }
+
+    .img{
+     
+        width: 800px;
+        margin: 30px;
+
+    }
+
+
+    #registrationForm{
+        margin: 30px;
+        
+    }
+
+   
+   
+    </style>
+</head>
+<body>
+    <main>
+        <h1>PixelBay</h1>
+        <h2>Création du compte</h2>
+        <section class="container">
+        <img class="img" src="https://i.postimg.cc/9fqf9bkc/Les-Meilleurs-Jeux-Retro.webp" alt="image">
+        <form id="registrationForm" method="get" action="#">
+            <div>
+                <label for="firstName">Prénom</label>
+                <input id="firstName" type="text" placeholder="Prénom" name="firstName">
+            </div>
+    
+            <div>
+                <label for="lastName">Nom</label>
+                <input id="lastName" type="text" placeholder="Nom" name="lastName">
+            </div>
+    
+            <div>
+                <label for="email">Email</label>
+                <input id="email" type="email" placeholder="example@example.com" name="email">
+            </div>
+    
+            <div>
+                <label for="pass1">Mot de passe</label>
+                <input id="pass1" type="password" placeholder="Mot de passe" name="password">
+            </div>
+    
+            <div>
+                <label for="pass2">Confirmer le mot de passe</label>
+                <input id="pass2" type="password" placeholder="Confirmer le mot de passe" name="confirmPassword">
+            </div>
+    
+            <div>
+                <label for="contact">Contact téléphonique</label>
+                <input id="contact" type="tel" placeholder="Contact téléphonique" name="contact">
+            </div>
+    
+            <div>
+                <!-- Majeur -->
+                <input id="majeur" type="checkbox" name="majeur" value="majeur">
+                <label for="majeur">Vous devez avoir plus de 18 ans pour vous inscrire</label>
+            </div>
+    
+            <div class="text-r py-1">
+                <button type="submit">S'inscrire maintenant</button>
+            </div>
+        </form>
+    </section>
+        <p class="message"></p>
+    </main>
+    
+    <script>
+        const registrationForm = document.getElementById('registrationForm');
+        const messageElement = document.querySelector('.message');
+    
+        registrationForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Empêcher la soumission du formulaire
+    
+            // Récupérer les valeurs des champs
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('pass1').value;
+            const confirmPassword = document.getElementById('pass2').value;
+            const contact = document.getElementById('contact').value.trim();
+            const majeur = document.getElementById('majeur').checked;
+    
+            // Validation du prénom et du nom
+            const nameRegex = /^[a-zA-Z]{2,20}$/;
+            if (!nameRegex.test(firstName) || !nameRegex.test(lastName)) {
+                showMessage("Le prénom et le nom doivent contenir entre 2 et 20 caractères alphabétiques.");
+                return;
+            }
+    
+            // Validation de l'email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showMessage("Veuillez saisir une adresse email valide.");
+                return;
+            }
+    
+            // Validation du mot de passe
+            const passwordRegex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-zA-Z]).{6,20}$/;
+            if (!passwordRegex.test(password)) {
+                showMessage("Le mot de passe doit contenir entre 6 et 20 caractères, incluant au moins un chiffre et un caractère spécial.");
+                return;
+            }
+    
+            // Confirmation du mot de passe
+            if (password !== confirmPassword) {
+                showMessage("Les mots de passe ne correspondent pas.");
+                return;
+            }
+    
+            // Validation du contact téléphonique
+            const phoneRegex = /^\d{10}$/;
+            if (!phoneRegex.test(contact)) {
+                showMessage("Veuillez saisir un numéro de téléphone valide (10 chiffres).");
+                return;
+            }
+    
+            // Vérification de la majorité
+            if (!majeur) {
+                showMessage("Vous devez être majeur pour vous inscrire.");
+                return;
+            }
+    
+            // Si toutes les validations sont passées, le formulaire est valide
+            showMessage("Formulaire valide ! Vous êtes prêt à vous inscrire.");
+        });
+    
+        function showMessage(message) {
+            messageElement.textContent = message;
+        }
+    </script>
+    
+   
+</body>
+</html>

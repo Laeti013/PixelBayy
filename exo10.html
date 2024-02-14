@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Les Jeux Vidéo du Calendrier PixelBay</title>
+    <style>
+      ol {
+        width: 300px;
+        margin: 50px auto;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Exo 10</h1>
+    <ol id="listeJeux"></ol>
+
+    <script>
+      // Code de départ
+      let jeux = [
+        "Space Adventure",
+        "Castle Quest",
+        "Mystery Island",
+        "Robot Wars",
+        "Jungle Journey",
+        "Racing Rush",
+        "Pirate's Treasure",
+        "Alien Invasion",
+        "Super Sports",
+        "Haunted Mansion",
+        "Galactic Odyssey",
+        "Winter Wonderland",
+      ];
+      let mois = [
+        "Janvier",
+        "Février",
+        "Mars",
+        "Avril",
+        "Mai",
+        "Juin",
+        "Juillet",
+        "Août",
+        "Septembre",
+        "Octobre",
+        "Novembre",
+        "Décembre",
+      ];
+      let liste = document.getElementById("listeJeux"); //Je vais chercher id: listejeux qui est dans la balise ol
+
+      for(let i = 0; i < mois.length; i++){ //création d'un tableau qui incrémente de 1 en 1
+       
+        const li = document.createElement('li') // création d'une varaible li, avec le documentElement on crée un nouvel élément de liste
+       
+       li.innerHTML = `${mois[i]}: ${jeux[i]}`; //création du texte 
+       
+       liste.appendChild(li)
+
+      }
+
+</script>
+</body>
+</html>
